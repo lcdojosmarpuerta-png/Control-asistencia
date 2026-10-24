@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-mango-blue: #0d5ca4;
+  --color-mango-blueDark: #073c6e;
+  --color-mango-blueLight: #1877d2;
+  --color-mango-red: #e5242d;
+  --color-mango-redDark: #b9151d;
+  --color-mango-cyan: #38bdf8;
+  --color-mango-green: #22c55e;
+  --color-mango-dark: #0f172a;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printArea,
+  #printArea * {
+    visibility: visible;
+  }
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: block !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

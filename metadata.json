@@ -1,0 +1,6 @@
+{
+  "name": "Mango Center Hiperferretería - Control de Asistencia y Jornada",
+  "description": "Sistema corporativo de control de asistencia, gestión de jornadas, nómina de personal y analítica de retardos para Mango Center Hiperferretería.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
