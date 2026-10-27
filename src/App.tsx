@@ -1234,7 +1234,8 @@ export default function App() {
                         setClaveSupervisorInput('');
                         setModalLoginSupervisorOpen(true);
                       }}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 bg-mango-blue hover:bg-mango-blueDark text-white text-[11px] sm:text-xs font-bold rounded-lg shadow-sm border border-blue-400/30 transition active:scale-[0.98] whitespace-nowrap cursor-pointer"
+                      className="btn-mango-blue inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-white text-[11px] sm:text-xs font-bold rounded-lg shadow-sm border border-blue-400/30 transition active:scale-[0.98] whitespace-nowrap cursor-pointer"
+                      style={{ backgroundColor: '#0d5ca4', color: '#ffffff' }}
                     >
                       <Lock className="w-3.5 h-3.5 text-amber-300" /> Supervisor
                     </button>
@@ -1261,7 +1262,8 @@ export default function App() {
                       type="button"
                       onClick={cerrarSesionSupervisor}
                       title="Cerrar sesión de supervisor"
-                      className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-1.5 bg-mango-red hover:bg-mango-redDark text-white text-[11px] sm:text-xs font-bold rounded-lg shadow-sm transition active:scale-[0.98] whitespace-nowrap cursor-pointer"
+                      className="btn-mango-red inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-white text-[11px] sm:text-xs font-bold rounded-lg shadow-sm transition active:scale-[0.98] whitespace-nowrap cursor-pointer"
+                      style={{ backgroundColor: '#e5242d', color: '#ffffff' }}
                     >
                       <LogOut className="w-3.5 h-3.5" />
                       <span className="hidden sm:inline">Salir</span>
@@ -1280,9 +1282,10 @@ export default function App() {
                 onClick={() => handleSwitchTab('terminal')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm transition whitespace-nowrap cursor-pointer ${
                   activeTab === 'terminal'
-                    ? 'font-bold bg-mango-blue text-white shadow-sm'
+                    ? 'btn-mango-blue font-bold text-white shadow-sm'
                     : 'font-medium text-slate-300 hover:text-white hover:bg-white/10'
                 }`}
+                style={activeTab === 'terminal' ? { backgroundColor: '#0d5ca4', color: '#ffffff' } : {}}
               >
                 <Fingerprint className="w-4 h-4" /> Terminal
               </button>
@@ -1294,9 +1297,10 @@ export default function App() {
                     onClick={() => handleSwitchTab('reportes')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm transition whitespace-nowrap cursor-pointer ${
                       activeTab === 'reportes'
-                        ? 'font-bold bg-mango-blue text-white shadow-sm'
+                        ? 'btn-mango-blue font-bold text-white shadow-sm'
                         : 'font-medium text-slate-300 hover:text-white hover:bg-white/10'
                     }`}
+                    style={activeTab === 'reportes' ? { backgroundColor: '#0d5ca4', color: '#ffffff' } : {}}
                   >
                     <FileSpreadsheet className="w-4 h-4" /> Reportes
                   </button>
@@ -1305,9 +1309,10 @@ export default function App() {
                     onClick={() => handleSwitchTab('config')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm transition whitespace-nowrap cursor-pointer ${
                       activeTab === 'config'
-                        ? 'font-bold bg-mango-blue text-white shadow-sm'
+                        ? 'btn-mango-blue font-bold text-white shadow-sm'
                         : 'font-medium text-slate-300 hover:text-white hover:bg-white/10'
                     }`}
+                    style={activeTab === 'config' ? { backgroundColor: '#0d5ca4', color: '#ffffff' } : {}}
                   >
                     <Database className="w-4 h-4" /> Personal ({personal.length})
                   </button>
@@ -1316,9 +1321,10 @@ export default function App() {
                     onClick={() => handleSwitchTab('graficos')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm transition whitespace-nowrap cursor-pointer ${
                       activeTab === 'graficos'
-                        ? 'font-bold bg-mango-blue text-white shadow-sm'
+                        ? 'btn-mango-blue font-bold text-white shadow-sm'
                         : 'font-medium text-slate-300 hover:text-white hover:bg-white/10'
                     }`}
+                    style={activeTab === 'graficos' ? { backgroundColor: '#0d5ca4', color: '#ffffff' } : {}}
                   >
                     <BarChart3 className="w-4 h-4 text-mango-red" /> Gráficos de Retardos
                   </button>
@@ -1494,7 +1500,8 @@ export default function App() {
                     </div>
                     <button
                       type="submit"
-                      className="px-3.5 sm:px-5 py-2.5 sm:py-3 bg-mango-blue hover:bg-mango-blueDark text-white font-bold text-xs sm:text-sm rounded-xl flex items-center gap-1.5 shadow-md shadow-mango-blue/20 transition active:scale-[0.98] whitespace-nowrap cursor-pointer"
+                      className="btn-mango-blue px-3.5 sm:px-5 py-2.5 sm:py-3 text-white font-bold text-xs sm:text-sm rounded-xl flex items-center gap-1.5 shadow-md shadow-mango-blue/20 transition active:scale-[0.98] whitespace-nowrap cursor-pointer"
+                      style={{ backgroundColor: '#0d5ca4', color: '#ffffff' }}
                     >
                       <Search className="w-4 h-4 sm:w-5 sm:h-5" />
                       <span className="hidden sm:inline">Consultar</span>
@@ -1524,25 +1531,93 @@ export default function App() {
                   ))}
                 </div>
 
-                {/* Ficha del Colaborador */}
+                {/* Ficha del Colaborador y Botones de Marcaje */}
                 <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 sm:p-5 transition-all">
                   {!colaboradorActual ? (
-                    <div className="py-8 sm:py-12 text-center text-slate-400">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 bg-white rounded-full flex items-center justify-center border border-slate-200 shadow-sm">
-                        <UserCheck className="w-6 h-6 sm:w-8 sm:h-8 text-mango-blue" />
+                    <div className="space-y-4">
+                      <div className="py-4 sm:py-6 text-center text-slate-400 border-b border-slate-200/80">
+                        <div
+                          className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 bg-white rounded-full flex items-center justify-center border border-slate-200 shadow-sm"
+                          style={{ backgroundColor: '#ffffff' }}
+                        >
+                          <UserCheck className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: '#0d5ca4' }} />
+                        </div>
+                        <p className="text-xs sm:text-sm font-bold text-slate-700">
+                          Busque o seleccione un colaborador para registrar marcaje
+                        </p>
+                        <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5">
+                          Escriba el nombre, apellido o N° de locker arriba o use los accesos rápidos
+                        </p>
                       </div>
-                      <p className="text-xs sm:text-sm font-bold text-slate-600">
-                        Busque o seleccione un colaborador para habilitar el marcaje
-                      </p>
-                      <p className="text-[10px] sm:text-xs text-slate-400 mt-0.5">
-                        Terminal de Control de Personal &bull; Mango Center Hiperferretería
-                      </p>
+
+                      {/* Botones de Marcaje (Siempre Visibles en Estado de Espera) */}
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <label className="text-[10px] sm:text-xs font-bold text-slate-600 uppercase tracking-wider">
+                            Botones de Marcaje (Esperando Selección):
+                          </label>
+                          <span
+                            className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                            style={{ backgroundColor: '#dbeafe', color: '#0d5ca4' }}
+                          >
+                            Modo Terminal
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                          <button
+                            type="button"
+                            disabled
+                            className="btn-entrada min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition opacity-60 cursor-not-allowed"
+                            style={{ backgroundColor: '#059669', color: '#ffffff' }}
+                            title="Seleccione un colaborador para habilitar Entrada"
+                          >
+                            <LogIn className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                            <span className="truncate">1. Entrada</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            disabled
+                            className="btn-sal-descanso min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition opacity-60 cursor-not-allowed"
+                            style={{ backgroundColor: '#d97706', color: '#ffffff' }}
+                            title="Seleccione un colaborador para habilitar Salida a Descanso"
+                          >
+                            <Coffee className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                            <span className="truncate">2. Sal. Descanso</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            disabled
+                            className="btn-ret-descanso min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition opacity-60 cursor-not-allowed"
+                            style={{ backgroundColor: '#0d5ca4', color: '#ffffff' }}
+                            title="Seleccione un colaborador para habilitar Retorno de Descanso"
+                          >
+                            <Utensils className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                            <span className="truncate">3. Ret. Descanso</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            disabled
+                            className="btn-salida min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition opacity-60 cursor-not-allowed"
+                            style={{ backgroundColor: '#e5242d', color: '#ffffff' }}
+                            title="Seleccione un colaborador para habilitar Salida Final"
+                          >
+                            <LogOut className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                            <span className="truncate">4. Salida Final</span>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   ) : (
                     <div className="space-y-4">
                       <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 gap-2">
                         <div className="flex items-center gap-2.5 sm:gap-3.5">
-                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-mango-blue text-white font-extrabold flex items-center justify-center text-sm sm:text-lg shadow-sm shrink-0">
+                          <div
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl text-white font-extrabold flex items-center justify-center text-sm sm:text-lg shadow-sm shrink-0"
+                            style={{ backgroundColor: '#0d5ca4', color: '#ffffff' }}
+                          >
                             {colaboradorActual.nombre
                               .split(' ')
                               .map((n) => n[0])
@@ -1555,13 +1630,13 @@ export default function App() {
                               {colaboradorActual.nombre}
                             </h3>
                             <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-slate-600">
-                              <span className="font-semibold text-mango-blue">
+                              <span className="font-semibold" style={{ color: '#0d5ca4' }}>
                                 {colaboradorActual.area}
                               </span>
                               <span aria-hidden="true">&bull;</span>
                               <span>
                                 Locker:{' '}
-                                <strong className="text-mango-red font-mono font-bold">
+                                <strong className="font-mono font-bold" style={{ color: '#e5242d' }}>
                                   {colaboradorActual.locker && colaboradorActual.locker !== 'S/N'
                                     ? `#${colaboradorActual.locker}`
                                     : 'S/N'}
@@ -1607,6 +1682,7 @@ export default function App() {
                                 ? 'text-emerald-700'
                                 : 'text-slate-400'
                             }`}
+                            style={estadoMarcajesColaborador.entrada ? { color: '#047857' } : {}}
                           >
                             {estadoMarcajesColaborador.entrada?.hora || '--:--'}
                           </div>
@@ -1621,6 +1697,7 @@ export default function App() {
                                 ? 'text-amber-700'
                                 : 'text-slate-400'
                             }`}
+                            style={estadoMarcajesColaborador.salidaDescanso ? { color: '#b45309' } : {}}
                           >
                             {estadoMarcajesColaborador.salidaDescanso?.hora || '--:--'}
                           </div>
@@ -1635,6 +1712,7 @@ export default function App() {
                                 ? 'text-mango-blue'
                                 : 'text-slate-400'
                             }`}
+                            style={estadoMarcajesColaborador.retornoDescanso ? { color: '#0d5ca4' } : {}}
                           >
                             {estadoMarcajesColaborador.retornoDescanso?.hora || '--:--'}
                           </div>
@@ -1649,13 +1727,14 @@ export default function App() {
                                 ? 'text-mango-red'
                                 : 'text-slate-400'
                             }`}
+                            style={estadoMarcajesColaborador.salida ? { color: '#e5242d' } : {}}
                           >
                             {estadoMarcajesColaborador.salida?.hora || '--:--'}
                           </div>
                         </div>
                       </div>
 
-                      {/* Botones de Marcaje con Secuencia Obligatoria */}
+                      {/* Botones de Marcaje con Secuencia Obligatoria y Estilos HEX Explícitos */}
                       <div>
                         <label className="block text-[10px] sm:text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
                           Acción a Registrar (Secuencia de Jornada):
@@ -1665,9 +1744,14 @@ export default function App() {
                             type="button"
                             disabled={!estadoMarcajesColaborador.puedeEntrada}
                             onClick={() => registrarMarcaje('Entrada')}
-                            className={`min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+                            className={`btn-entrada min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                               estadoMarcajesColaborador.entrada ? 'line-through' : ''
                             }`}
+                            style={{
+                              backgroundColor: '#059669',
+                              color: '#ffffff',
+                              opacity: estadoMarcajesColaborador.puedeEntrada ? 1 : 0.4
+                            }}
                           >
                             <LogIn className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                             <span className="truncate">1. Entrada</span>
@@ -1677,9 +1761,14 @@ export default function App() {
                             type="button"
                             disabled={!estadoMarcajesColaborador.puedeSalDescanso}
                             onClick={() => registrarMarcaje('Salida a Descanso')}
-                            className={`min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-amber-600 hover:bg-amber-700 active:scale-[0.98] shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+                            className={`btn-sal-descanso min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                               estadoMarcajesColaborador.salidaDescanso ? 'line-through' : ''
                             }`}
+                            style={{
+                              backgroundColor: '#d97706',
+                              color: '#ffffff',
+                              opacity: estadoMarcajesColaborador.puedeSalDescanso ? 1 : 0.4
+                            }}
                           >
                             <Coffee className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                             <span className="truncate">2. Sal. Descanso</span>
@@ -1689,9 +1778,14 @@ export default function App() {
                             type="button"
                             disabled={!estadoMarcajesColaborador.puedeRetDescanso}
                             onClick={() => registrarMarcaje('Retorno de Descanso')}
-                            className={`min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-mango-blue hover:bg-mango-blueDark active:scale-[0.98] shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+                            className={`btn-ret-descanso min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                               estadoMarcajesColaborador.retornoDescanso ? 'line-through' : ''
                             }`}
+                            style={{
+                              backgroundColor: '#0d5ca4',
+                              color: '#ffffff',
+                              opacity: estadoMarcajesColaborador.puedeRetDescanso ? 1 : 0.4
+                            }}
                           >
                             <Utensils className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                             <span className="truncate">3. Ret. Descanso</span>
@@ -1701,9 +1795,14 @@ export default function App() {
                             type="button"
                             disabled={!estadoMarcajesColaborador.puedeSalida}
                             onClick={() => registrarMarcaje('Salida')}
-                            className={`min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-mango-red hover:bg-mango-redDark active:scale-[0.98] shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+                            className={`btn-salida min-h-[48px] flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white shadow-sm transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                               estadoMarcajesColaborador.salida ? 'line-through' : ''
                             }`}
+                            style={{
+                              backgroundColor: '#e5242d',
+                              color: '#ffffff',
+                              opacity: estadoMarcajesColaborador.puedeSalida ? 1 : 0.4
+                            }}
                           >
                             <LogOut className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                             <span className="truncate">4. Salida Final</span>
@@ -1713,6 +1812,7 @@ export default function App() {
                     </div>
                   )}
                 </div>
+
               </div>
 
               {/* Historial en Vivo del Día */}
